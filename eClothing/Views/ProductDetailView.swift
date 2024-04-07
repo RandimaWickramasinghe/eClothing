@@ -8,11 +8,80 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    var product: Product
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    ScrollView{
+       
+            ZStack{
+                
+                Color.white
+                
+                VStack(alignment: .leading){
+                    
+                    ZStack(alignment: .topTrailing){
+                        
+                        Image(product.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        
+                    }
+                            //
+                           
+                            
+                        
+                          //  .ignoresSafeArea(edges: .top)
+                            .frame(width: 200, height: 300)
+                        
+                    VStack{
+                        HStack{
+                            Text(product.name)
+                                .font(.title2)
+                                .bold()
+                            
+                            Text("$\(product.price).00")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .padding(.horizontal)
+                                
+                        }
+                        .padding(.vertical)
+                       
+                        Text("Desctiption")
+                            .font(.title3)
+                            .bold().fontWeight(.medium)
+                            //.padding()
+                        
+                        Text(product.desctiption)
+                        //Spacer()
+                        
+                        HStack(alignment: .top){
+                            
+                            VStack(alignment: .leading){
+                                
+                                Text("Size")
+                                
+                            }
+                           // .frame( alignment: .leading)
+                        }//.padding(.vertical)
+                        PaymentButton(action:{})
+                            .frame()
+                    }
+                        
+                   
+                    
+                   // Image(systemName: "heart")
+                }
+            }
+            
+        }
+          // .ignoresSafeArea()
     }
 }
 
+
 #Preview {
-    ProductDetailView()
+    ProductDetailView(product: productList[1])
+   // ProductDetailView( )
 }
+
+
